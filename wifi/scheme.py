@@ -17,6 +17,8 @@ def configuration(cell, passkey=None):
         return {
             'wireless-essid': cell.ssid,
             'wireless-channel': 'auto',
+            'wireless-ap': 'any',
+            'wireless-enc': 'off'
         }
     else:
         if cell.encryption_type.startswith('wpa'):
@@ -49,6 +51,10 @@ def configuration(cell, passkey=None):
             return {
                 'wireless-essid': cell.ssid,
                 'wireless-key': passkey,
+                 'wireless-channel': 'auto',
+                 'wireless-ap': 'any',
+                 'wireless-enc': 'on'
+
             }
         else:
             raise NotImplementedError
